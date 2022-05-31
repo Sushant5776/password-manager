@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         'laal': "#EF233C",
         'rakhadi': '#8D99AE',
+        'kaala': '#282828'
       }
     },
   },
