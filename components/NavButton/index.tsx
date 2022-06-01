@@ -1,6 +1,6 @@
 import { NavButtonProps } from 'interfaces/components/navButton'
 import { useDispatch } from 'react-redux'
-import { hide, show } from 'store/form'
+import { hide, show } from 'lib/store/form'
 
 const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
   const dispatch = useDispatch()
