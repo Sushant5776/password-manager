@@ -5,10 +5,10 @@ import SignUpForm from '@/components/SignUpForm'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
-import { RootState } from 'lib/store'
+import { RootState } from 'lib/stateManager'
 
 const Home: NextPage = () => {
-  const show = useSelector((state: RootState) => state.form.show)
+  const show = useSelector<RootState>((state) => state.form.show)
 
   return (
     <div
