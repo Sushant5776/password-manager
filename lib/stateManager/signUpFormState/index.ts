@@ -33,6 +33,7 @@ const signUpFormSlice = createSlice({
       ...state,
       confirmPassword: action.payload,
     }),
+    resetSignUpForm: () => initialState,
   },
 })
 
@@ -42,5 +43,6 @@ export const {
   setEmail,
   setPassword,
   setConfirmPassword,
+  resetSignUpForm,
 } = signUpFormSlice.actions
 export default signUpFormSlice.reducer
