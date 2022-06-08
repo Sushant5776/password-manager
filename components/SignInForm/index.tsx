@@ -1,4 +1,3 @@
-import Input from '@/components/Input'
 import { SignInFormState } from 'types/StoreStates/signInForm'
 import { RootDispatch, RootState } from 'utils/stateManager'
 import { setUsername } from 'utils/stateManager/signInFormState'
@@ -16,7 +15,10 @@ const SignInForm = () => {
     event.preventDefault()
 
     if (username) {
-      signIn('email', { callbackUrl: '/dashboard', email: username })
+      signIn('email', {
+        callbackUrl: '/dashboard',
+        email: username,
+      })
     } else {
       alert('Invalid Username')
     }

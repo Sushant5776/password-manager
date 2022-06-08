@@ -1,5 +1,5 @@
 import { FirebaseAdapter } from '@next-auth/firebase-adapter'
-import { doc, DocumentData, DocumentSnapshot, getDoc } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 import NextAuth from 'next-auth/next'
 import EmailProvider from 'next-auth/providers/email'
 import { User } from 'types/next-auth'

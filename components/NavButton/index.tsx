@@ -1,8 +1,9 @@
-import { NavButtonProps } from 'types/components/navButton'
+import { NavButtonProps } from 'types/components/NavButton'
 import { useDispatch } from 'react-redux'
 import { hide, show } from 'utils/stateManager/formState'
 import { RootDispatch } from 'utils/stateManager'
 import { resetSignInForm } from 'utils/stateManager/signInFormState'
+import { signOut } from 'next-auth/react'
 
 const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
   const dispatch: RootDispatch = useDispatch()
@@ -14,6 +15,19 @@ const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
   const hideForm = () => {
     dispatch(hide())
     dispatch(resetSignInForm())
+  }
+
+  if (text === 'Sign Out') {
+    return (
+      <button
+        onClick={() => signOut({ callbackUrl: '/' })}
+        className={`text-white ${
+          backgroundColor === 'laal' ? 'bg-laal' : 'bg-rakhadi'
+        } rounded-md font-medium py-1 sm:py-2 shadow-md block sm:inline mx-auto sm:px-6 px-3`}
+      >
+        {text}
+      </button>
+    )
   }
 
   return (

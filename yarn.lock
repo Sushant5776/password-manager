@@ -395,10 +395,15 @@
     protobufjs "^6.11.3"
     yargs "^16.2.0"
 
+"@heroicons/react@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-1.0.6.tgz#35dd26987228b39ef2316db3b1245c42eb19e324"
+  integrity sha512-JJCXydOFWMDpCP4q13iEplA503MQO3xLoZiKum+955ZCtHINWnx26CUxVxxFQu/uLb4LW3ge15ZpzIkXKkJ8oQ==
+
 "@next-auth/firebase-adapter@^0.1.2-pr.183-76202b42.8":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@next-auth/firebase-adapter/-/firebase-adapter-0.1.3.tgz#e5fc42fa04ffe8039a2f72c106c33ef74af7248e"
-  integrity sha512-69VPLzoc/Uujg6p1etOQ9DMmGX/c1ZQGj53DWhghPHrRLB7E7PSlc41afwueblzU7ikb9iIQu7Hxtid3U0BjdA==
+  version "0.1.2-pr.183-76202b42.8"
+  resolved "https://registry.yarnpkg.com/@next-auth/firebase-adapter/-/firebase-adapter-0.1.2-pr.183-76202b42.8.tgz#8be37b990282c92a50ae16fd125c6bc5c29dbd5e"
+  integrity sha512-0zAPcY3YgTB0Od05hhfa1zFrpjOtvu2n/xHPFpk70ideCbxy5lXlojHNm+NRKwSeWx2nkwF3YqIEZVnsOaYnZA==
 
 "@next/env@12.1.6":
   version "12.1.6"

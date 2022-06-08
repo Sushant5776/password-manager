@@ -20,7 +20,7 @@ const firebaseConfig = {
   projectId: 'passman-26534',
   storageBucket: 'passman-26534.appspot.com',
   messagingSenderId: '611423179753',
-  appId: '1:611423179753:web:25694f52c843b68b783178',
+  appId: '1:611423179753:web:bf2ef0e540bcb76a783178',
 }
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp()

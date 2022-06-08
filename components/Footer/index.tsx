@@ -1,12 +1,13 @@
 import Image from 'next/image'
+import { FooterProps } from 'types/components/Footer'
 
-const Footer = () => {
+const Footer = ({ name }: FooterProps) => {
   return (
     <footer className="sm:py-8 py-4 sm:space-y-0 space-y-1 sm:px-32 px-4 w-full flex sm:flex-row flex-col items-center justify-between h-max sm:h-32 backdrop-blur-3xl rounded-t-lg bg-rakhadi/60">
       {/* About Info */}
       <div className="w-max">
         <h3 className="font-semibold text-center drop-shadow-lg text-kaala/80">
-          Designed & Developed By
+          Designed &amp; Developed By
         </h3>
         <h4 className="text-white font-bold text-[1.75rem] sm:text-3xl drop-shadow-lg">
           Sushant Garudkar

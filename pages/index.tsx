@@ -28,7 +28,7 @@ const Home: NextPage<{ session: Session | null }> = ({ session }) => {
       </Head>
 
       <main className="bg-white/95 sm:bg-white/[0.93] space-y-9 flex flex-col w-full min-h-screen">
-        <Header />
+        <Header title="PassMan" />
         {/* Content */}
         <div className="flex flex-1 flex-col space-y-4 sm:space-y-0 sm:flex-row items-center justify-between sm:justify-around h-fit">
           {/* Heading */}
@@ -48,7 +48,7 @@ const Home: NextPage<{ session: Session | null }> = ({ session }) => {
           </div>
         </div>
         {/* Footer */}
-        <Footer />
+        <Footer name="Sushant Garudkar" />
       </main>
     </div>
   )

@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@next-auth/firebase-adapter": "^0.1.2-pr.183-76202b42.8",
     "@reduxjs/toolkit": "^1.8.2",
     "firebase": "^9.8.2",
