@@ -2,7 +2,6 @@ import { NavButtonProps } from 'types/components/navButton'
 import { useDispatch } from 'react-redux'
 import { hide, show } from 'utils/stateManager/formState'
 import { RootDispatch } from 'utils/stateManager'
-import { resetSignUpForm } from 'utils/stateManager/signUpFormState'
 import { resetSignInForm } from 'utils/stateManager/signInFormState'
 
 const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
@@ -10,7 +9,6 @@ const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
 
   const showForm = () => {
     dispatch(show())
-    dispatch(resetSignUpForm())
   }
 
   const hideForm = () => {

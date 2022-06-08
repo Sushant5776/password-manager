@@ -1,13 +1,13 @@
 import Input from '@/components/Input'
 import { SignInFormState } from 'types/StoreStates/signInForm'
 import { RootDispatch, RootState } from 'utils/stateManager'
-import { setUsername, setPassword } from 'utils/stateManager/signInFormState'
+import { setUsername } from 'utils/stateManager/signInFormState'
 import { signIn } from 'next-auth/react'
 import { MouseEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 const SignInForm = () => {
-  const { username, password } = useSelector<RootState, SignInFormState>(
+  const { username } = useSelector<RootState, SignInFormState>(
     (state) => state.signInForm
   )
   const dispatch: RootDispatch = useDispatch()
@@ -27,25 +27,22 @@ const SignInForm = () => {
       <h2 className="text-laal font-semibold text-center text-2xl">
         Lets Get In...!
       </h2>
-      <Input
-        id="email"
-        text="Email"
-        type="email"
-        value={username}
-        action={setUsername}
-        dispatch={dispatch}
-      />
-      <Input
-        id="password"
-        text="Password"
-        type="password"
-        value={password}
-        action={setPassword}
-        dispatch={dispatch}
-      />
+      <div className="flex flex-col space-y-1">
+        <label htmlFor="email" className="font-medium ml-1 text-black/70">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Get a sign in link..."
+          className="focus:outline-none w-[19rem] sm:w-[24rem] focus:bg-rakhadi/25 focus:font-medium text-slate-800 bg-rakhadi/[0.15] py-[6px] sm:py-[0.6rem] px-3 rounded-lg"
+          value={username}
+          onChange={(event) => dispatch(setUsername(event.target.value))}
+        />
+      </div>
       <button
         onClick={handleSignIn}
-        className="bg-laal/90 w-full px-3 py-[6px] rounded-lg text-white font-semibold"
+        className="bg-laal/90 w-full px-3 py-[0.6rem] rounded-lg text-white font-semibold"
       >
         Sign In
       </button>

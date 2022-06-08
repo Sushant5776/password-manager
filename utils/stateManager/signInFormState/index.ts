@@ -3,7 +3,6 @@ import { SignInFormState } from 'types/StoreStates/signInForm'
 
 const initialState: SignInFormState = {
   username: '',
-  password: '',
 }
 
 const signInFormSlice = createSlice({
@@ -14,14 +13,9 @@ const signInFormSlice = createSlice({
       ...state,
       username: action.payload,
     }),
-    setPassword: (state, action: PayloadAction<string>) => ({
-      ...state,
-      password: action.payload,
-    }),
     resetSignInForm: () => initialState,
   },
 })
 
-export const { setUsername, setPassword, resetSignInForm } =
-  signInFormSlice.actions
+export const { setUsername, resetSignInForm } = signInFormSlice.actions
 export default signInFormSlice.reducer

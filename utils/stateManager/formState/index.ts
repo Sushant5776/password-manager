@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  show: false,
+  show: true,
 }
 
 export const formSlice = createSlice({

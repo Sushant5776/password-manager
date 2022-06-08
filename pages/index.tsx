@@ -1,14 +1,13 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import SignInForm from '@/components/SignInForm'
-import SignUpForm from '@/components/SignUpForm'
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
 import { RootState } from 'utils/stateManager'
 import { getSession } from 'next-auth/react'
-import { IncomingMessage } from 'http'
 import { Session } from 'next-auth'
+import AboutUsCard from '@/components/AboutUsCard'
 
 const Home: NextPage<{ session: Session | null }> = ({ session }) => {
   const show = useSelector<RootState>((state) => state.form.show)
@@ -44,7 +43,7 @@ const Home: NextPage<{ session: Session | null }> = ({ session }) => {
               <SignInForm />
             ) : (
               // SignUpForm
-              <SignUpForm />
+              <AboutUsCard />
             )}
           </div>
         </div>

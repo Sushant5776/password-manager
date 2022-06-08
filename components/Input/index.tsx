@@ -9,7 +9,7 @@ const Input = ({ id, type, text, value, dispatch, action }: InputProps) => {
       <input
         type={type}
         id={id}
-        className="focus:outline-none w-[19rem] sm:w-auto focus:bg-rakhadi/25 focus:font-medium text-slate-800 bg-rakhadi/[0.15] py-[6px] sm:py-2 px-3 rounded-lg"
+        className="focus:outline-none w-[19rem] sm:w-[24rem] focus:bg-rakhadi/25 focus:font-medium text-slate-800 bg-rakhadi/[0.15] py-[6px] sm:py-2 px-3 rounded-lg"
         value={value}
         onChange={(event) => dispatch(action(event.target.value))}
       />

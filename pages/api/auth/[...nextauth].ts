@@ -19,6 +19,7 @@ export default NextAuth({
           pass: process.env.EMAIL_SERVER_PASS,
         },
       },
+      from: process.env.EMAIL_SERVER_FROM,
     }),
   ],
   pages: { signIn: '/', signOut: '/dashboard' },
@@ -26,7 +27,6 @@ export default NextAuth({
   session: {
     strategy: 'jwt',
   },
-
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
