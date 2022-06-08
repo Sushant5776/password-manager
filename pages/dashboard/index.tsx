@@ -1,3 +1,4 @@
+import Header from '@/components/Header'
 import { GetServerSideProps, NextPage } from 'next'
 import { Session } from 'next-auth'
 import { getSession, signOut } from 'next-auth/react'
@@ -5,6 +6,7 @@ import { getSession, signOut } from 'next-auth/react'
 const Dashboard: NextPage<{ session: Session }> = ({ session }) => {
   return (
     <main>
+      <Header />
       <h1>Welcome {session.user?.name || session.user.email}!</h1>
       <button onClick={() => signOut()}>Sign Out</button>
     </main>

@@ -18,12 +18,12 @@ const AboutUsCard = () => {
       </div>
       {/* Autor Title and Description */}
       <div className="space-y-1">
-        <h2 className="text-laal/90 drop-shadow-sm font-semibold text-center text-2xl">
+        <h2 className="text-laal/90 drop-shadow-md font-semibold text-center text-2xl">
           Sushant Garudkar
         </h2>
         <p className="text-rakhadi/80 text-center drop-shadow-sm font-medium">
           Savitribai Phule Pune University <strong>&middot;</strong>{' '}
-          Wannapreneur <strong>&middot;</strong> Spiritual
+          Wannapreneur <strong>&middot;</strong> Spiritual ~ Pune, MH, India
         </p>
       </div>
     </div>
