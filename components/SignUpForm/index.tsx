@@ -1,14 +1,14 @@
 import Input from '@/components/Input'
 import { Dispatch } from '@reduxjs/toolkit'
-import { signUpFormState } from 'interfaces/StoreStates/signUpForm'
-import { RootDispatch, RootState } from 'lib/stateManager'
+import { signUpFormState } from 'types/StoreStates/signUpForm'
+import { RootDispatch, RootState } from 'utils/stateManager'
 import {
   setEmail,
   setFirstName,
   setLastName,
   setConfirmPassword,
   setPassword,
-} from 'lib/stateManager/signUpFormState'
+} from 'utils/stateManager/signUpFormState'
 import { useDispatch, useSelector } from 'react-redux'
 
 const SignUpForm = () => {

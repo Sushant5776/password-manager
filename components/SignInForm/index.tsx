@@ -1,7 +1,9 @@
 import Input from '@/components/Input'
-import { SignInFormState } from 'interfaces/StoreStates/signInForm'
-import { RootDispatch, RootState } from 'lib/stateManager'
-import { setUsername, setPassword } from 'lib/stateManager/signInFormState'
+import { SignInFormState } from 'types/StoreStates/signInForm'
+import { RootDispatch, RootState } from 'utils/stateManager'
+import { setUsername, setPassword } from 'utils/stateManager/signInFormState'
+import { signIn } from 'next-auth/react'
+import { MouseEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 const SignInForm = () => {
@@ -9,6 +11,16 @@ const SignInForm = () => {
     (state) => state.signInForm
   )
   const dispatch: RootDispatch = useDispatch()
+
+  const handleSignIn = (event: MouseEvent) => {
+    event.preventDefault()
+
+    if (username) {
+      signIn('email', { callbackUrl: '/dashboard', email: username })
+    } else {
+      alert('Invalid Username')
+    }
+  }
 
   return (
     <form className="p-4 rounded-lg w-max h-max border backdrop-blur-3xl shadow-md space-y-4 border-rakhadi/50">
@@ -31,7 +43,10 @@ const SignInForm = () => {
         action={setPassword}
         dispatch={dispatch}
       />
-      <button className="bg-laal/90 w-full px-3 py-[6px] rounded-lg text-white font-semibold">
+      <button
+        onClick={handleSignIn}
+        className="bg-laal/90 w-full px-3 py-[6px] rounded-lg text-white font-semibold"
+      >
         Sign In
       </button>
     </form>

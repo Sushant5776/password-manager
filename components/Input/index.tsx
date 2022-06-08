@@ -1,4 +1,4 @@
-import { InputProps } from 'interfaces/components/input'
+import { InputProps } from 'types/components/input'
 
 const Input = ({ id, type, text, value, dispatch, action }: InputProps) => {
   return (

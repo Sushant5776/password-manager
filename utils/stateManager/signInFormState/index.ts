@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { SignInFormState } from 'interfaces/StoreStates/signInForm'
+import { SignInFormState } from 'types/StoreStates/signInForm'
 
 const initialState: SignInFormState = {
   username: '',

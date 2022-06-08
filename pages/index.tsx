@@ -2,12 +2,15 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import SignInForm from '@/components/SignInForm'
 import SignUpForm from '@/components/SignUpForm'
-import type { NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import { useSelector } from 'react-redux'
-import { RootState } from 'lib/stateManager'
+import { RootState } from 'utils/stateManager'
+import { getSession } from 'next-auth/react'
+import { IncomingMessage } from 'http'
+import { Session } from 'next-auth'
 
-const Home: NextPage = () => {
+const Home: NextPage<{ session: Session | null }> = ({ session }) => {
   const show = useSelector<RootState>((state) => state.form.show)
 
   return (
@@ -50,6 +53,14 @@ const Home: NextPage = () => {
       </main>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const session = await getSession(context)
+
+  return {
+    props: { session },
+  }
 }
 
 export default Home

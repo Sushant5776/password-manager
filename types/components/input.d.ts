@@ -1,5 +1,5 @@
 import { ActionCreatorWithPayload, PayloadAction } from '@reduxjs/toolkit'
-import { RootDispatch } from 'lib/stateManager'
+import { RootDispatch } from 'utils/stateManager'
 
 export interface InputProps {
   id: string
