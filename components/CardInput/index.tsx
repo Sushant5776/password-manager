@@ -20,7 +20,8 @@ const CardInput = ({ inputValue, type, displayText }: CardInputProps) => {
       </label>
       <div className="flex items-center w-72 rounded-md bg-rakhadi/[0.15] text-slate-700 transition focus-within:bg-rakhadi/20 justify-between">
         <input
-          type="text"
+          autoComplete="off"
+          type={type}
           placeholder={`Enter Your ${displayText}`}
           id={type}
           value={val}
