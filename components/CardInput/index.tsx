@@ -1,11 +1,11 @@
 import { CheckIcon, DocumentDuplicateIcon } from '@heroicons/react/outline'
-import { MouseEvent, useState } from 'react'
+import { MouseEvent, useEffect, useState } from 'react'
 import { CardInputProps } from 'types/components/CardInput'
 
 const CardInput = ({ inputValue, type, displayText }: CardInputProps) => {
-  const [val, setVal] = useState(inputValue || '')
+  const [val, setVal] = useState('')
   const [check, setCheck] = useState(false)
-
+  console.log(inputValue)
   const handleClick = async (event: MouseEvent) => {
     event.preventDefault()
     setCheck(true)
@@ -13,9 +13,16 @@ const CardInput = ({ inputValue, type, displayText }: CardInputProps) => {
     setTimeout(() => setCheck(false), 1025)
   }
 
+  useEffect(() => {
+    setVal(inputValue)
+  }, [inputValue])
+
   return (
     <div className="space-y-2">
-      <label htmlFor={type} className="text-slate-500 font-medium">
+      <label
+        htmlFor={`${inputValue.replace(' ', '')}-${type}`}
+        className="text-slate-500 font-medium"
+      >
         {displayText}
       </label>
       <div className="flex items-center w-72 rounded-md bg-rakhadi/[0.15] text-slate-700 transition focus-within:bg-rakhadi/20 justify-between">
@@ -23,7 +30,7 @@ const CardInput = ({ inputValue, type, displayText }: CardInputProps) => {
           autoComplete="off"
           type={type}
           placeholder={`Enter Your ${displayText}`}
-          id={type}
+          id={`${inputValue.replace(' ', '')}-${type}`}
           value={val}
           onChange={(event) => setVal(event.target.value)}
           className="w-full py-2 sm:py-2 focus:font-medium pl-3 focus:outline-none bg-transparent"

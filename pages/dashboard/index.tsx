@@ -4,6 +4,7 @@ import Header from '@/components/Header'
 import {
   collection,
   getDocs,
+  onSnapshot,
   orderBy,
   query,
   Timestamp,
@@ -12,6 +13,7 @@ import { GetServerSideProps, NextPage } from 'next'
 import { Session } from 'next-auth'
 import { getSession } from 'next-auth/react'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import { UserData } from 'types/database/UserData'
 import { db } from 'utils/database'
 
@@ -19,6 +21,33 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
   session,
   data,
 }) => {
+  const [creds, setCreds] = useState(data)
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(
+      query(
+        collection(db, 'users', session.user.id, 'data'),
+        orderBy('timestamp', 'desc')
+      ),
+      (snapshot) => {
+        console.log(snapshot.docs.map((doc) => doc.data()))
+        const data = snapshot.docs.map(
+          (doc) =>
+            ({
+              docId: doc.id,
+              ...doc.data(),
+              timestamp: (doc.data().timestamp as Timestamp)
+                ?.toDate()
+                .toString(),
+            } as UserData)
+        )
+        setCreds(data)
+      }
+    )
+
+    return () => unsubscribe()
+  }, [])
+
   return (
     <div
       style={{
@@ -36,7 +65,7 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
         {/* Header */}
         <Header title="PassMan" />
         {/* Horizontal Rule */}
-        <div className="relative flex py-2 items-center">
+        <div className="flex py-2 items-center">
           <div className="flex-grow border border-rakhadi/50"></div>
           <span className="flex-shrink tracking-wide text-rakhadi drop-shadow-md font-semibold px-4">
             Dashboard -{' '}
@@ -49,20 +78,26 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
         {/* Content */}
         <section className="mx-24 flex-grow">
           {/* Descriptive Heading */}
-          <h2 className="text-rakhadi mb-4 font-semibold sm:text-2xl">
-            Your Notes &amp; Passwords
-          </h2>
-          <section className="flex flex-wrap gap-8 w-max max-w-full items-center justify-start">
-            {/* Password/Key Cards */}
-            {data.map((authPair) => (
-              <Card
-                key={authPair.docId}
-                title={authPair.title}
-                id={authPair.identity}
-                pass_key={authPair.value}
-              />
-            ))}
-          </section>
+          <div className="mb-4 space-x-6">
+            <h2 className="text-rakhadi inline-block font-semibold sm:text-2xl">
+              Your Notes &amp; Passwords
+            </h2>
+            <button className="p-2 text-slate-500 bg-neutral-500/10 hover:outline hover:outline-2 hover:text-slate-600 hover:outline-rakhadi/30 hover:shadow-neutral-200 hover:drop-shadow-sm active:text-white active:outline-none active:bg-rakhadi transition font-medium rounded-md backdrop-blur-3xl">
+              Add Credentials
+            </button>
+          </div>
+          {creds.length ? (
+            <section className="flex flex-wrap gap-8 w-max max-w-full items-center justify-start">
+              {/* Password/Key Cards */}
+              {creds.map((doc) => (
+                <Card {...doc} user_id={session.user.id} key={doc.docId} />
+              ))}
+            </section>
+          ) : (
+            <h1 className="text-xl text-center mt-16 font-medium text-kaala/80 animate-bounce">
+              Oops! You have no credentials saved yet!
+            </h1>
+          )}
         </section>
         {/* Footer */}
         <Footer name="Sushant Garudkar" />
@@ -95,7 +130,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   } else {
     data = []
   }
-  console.log(data)
+
   return {
     props: { session, data },
   }

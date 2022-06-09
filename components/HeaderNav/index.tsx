@@ -11,7 +11,7 @@ const HeaderNav = () => {
       ) : (
         <>
           <NavButton text="Sign In" backgroundColor="laal" />
-          <NavButton text="About Us" backgroundColor="rakhadi" />
+          <NavButton text="About Me" backgroundColor="rakhadi" />
         </>
       )}
     </nav>

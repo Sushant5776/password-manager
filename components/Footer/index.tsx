@@ -10,7 +10,7 @@ const Footer = ({ name }: FooterProps) => {
           Designed &amp; Developed By
         </h3>
         <h4 className="text-white font-bold text-[1.75rem] sm:text-3xl drop-shadow-lg">
-          Sushant Garudkar
+          {name}
         </h4>
       </div>
       {/* Contact */}
