@@ -34,7 +34,7 @@ const AddNewCredsPopup = ({
   return (
     <section
       onClick={() => handleClose()}
-      className="absolute w-full h-screen top-0 left-0 z-50 backdrop-blur-md"
+      className="absolute w-full h-screen top-0 left-0 z-50 backdrop-blur-xl"
     >
       <section
         onClick={(event) => event.stopPropagation()}

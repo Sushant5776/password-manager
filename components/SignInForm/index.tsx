@@ -37,14 +37,14 @@ const SignInForm = () => {
           type="email"
           id="email"
           placeholder="Get a sign in link..."
-          className="focus:outline-none w-[19rem] sm:w-[24rem] focus:bg-rakhadi/25 focus:font-medium text-slate-800 bg-rakhadi/[0.15] py-[6px] sm:py-[0.6rem] px-3 rounded-lg"
+          className="focus:outline-none w-[18rem] sm:w-[24rem] focus:bg-rakhadi/25 focus:font-medium text-slate-800 bg-rakhadi/[0.15] py-[6px] sm:py-[0.6rem] px-3 rounded-lg"
           value={username}
           onChange={(event) => dispatch(setUsername(event.target.value))}
         />
       </div>
       <button
         onClick={handleSignIn}
-        className="bg-laal/90 w-full px-3 py-[0.6rem] rounded-lg text-white font-semibold"
+        className="bg-laal/90 w-full hover:bg-laal active:scale-95 active:bg-rakhadi transition px-3 py-[0.6rem] rounded-lg text-white font-semibold"
       >
         Sign In
       </button>

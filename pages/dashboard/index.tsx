@@ -15,8 +15,10 @@ import { Session } from 'next-auth'
 import { getSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { UserData } from 'types/database/UserData'
 import { db } from 'utils/database'
+import { RootState } from 'utils/stateManager'
 
 const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
   session,
@@ -24,6 +26,7 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
 }) => {
   const [creds, setCreds] = useState(data)
   const [newCredsPopupState, setNewCredsPopupState] = useState(false)
+  const { hideOverflow } = useSelector((state: RootState) => state.editPopup)
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -32,7 +35,6 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
         orderBy('timestamp', 'desc')
       ),
       (snapshot) => {
-        console.log(snapshot.docs.map((doc) => doc.data()))
         const data = snapshot.docs.map(
           (doc) =>
             ({
@@ -67,12 +69,14 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
           backgroundSize: 'contain',
           backgroundRepeat: 'repeat-y',
         }}
-        className="w-full min-h-screen"
+        className={`w-full min-h-screen ${
+          newCredsPopupState || hideOverflow ? 'h-screen overflow-hidden' : ''
+        }`}
       >
         <Head>
           <title>Dashboard - {session.user.name || session.user.email}</title>
         </Head>
-        <main className="bg-white/95 flex flex-col w-full min-h-screen">
+        <main className="bg-white/95 space-y-4 flex flex-col w-full min-h-screen">
           {/* Header */}
           <Header title="PassMan" />
           {/* Horizontal Rule */}
@@ -87,28 +91,28 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
             <div className="flex-grow border border-rakhadi/50"></div>
           </div>
           {/* Content */}
-          <section className="mx-24 flex-grow">
+          <section className="sm:mx-24 mx-5 flex-grow">
             {/* Descriptive Heading */}
-            <div className="mb-4 space-x-6">
-              <h2 className="text-rakhadi inline-block font-semibold sm:text-2xl">
+            <div className="mb-4 space-x-2 sm:space-x-6">
+              <h2 className="text-rakhadi inline-block font-semibold text-base sm:text-2xl">
                 Your Notes &amp; Passwords
               </h2>
               <button
                 onClick={() => setNewCredsPopupState(true)}
-                className="p-2 text-slate-500 bg-neutral-500/10 hover:outline hover:outline-2 hover:text-slate-600 hover:outline-rakhadi/30 hover:shadow-neutral-200 hover:drop-shadow-sm active:text-white active:outline-none active:bg-rakhadi transition font-medium rounded-md backdrop-blur-3xl"
+                className="p-2 text-slate-500 text-sm sm:text-base bg-neutral-500/10 hover:outline hover:outline-2 hover:text-slate-600 hover:outline-rakhadi/30 hover:shadow-neutral-200 hover:drop-shadow-sm active:text-white active:outline-none active:bg-rakhadi transition font-medium rounded-md backdrop-blur-3xl"
               >
                 Add Credentials
               </button>
             </div>
             {creds.length ? (
-              <section className="flex flex-wrap gap-8 w-max max-w-full items-center justify-start">
+              <section className="flex flex-wrap gap-4 sm:gap-8 w-max max-w-full items-center justify-start">
                 {/* Password/Key Cards */}
                 {creds.map((doc) => (
                   <Card {...doc} user_id={session.user.id} key={doc.docId} />
                 ))}
               </section>
             ) : (
-              <h1 className="text-xl text-center mt-16 font-medium text-kaala/80 animate-bounce">
+              <h1 className="sm:text-xl text-base text-center mt-8 font-medium text-kaala/80 animate-bounce">
                 Oops! You have no credentials saved yet!
               </h1>
             )}

@@ -21,9 +21,7 @@ const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
     return (
       <button
         onClick={() => signOut({ callbackUrl: '/' })}
-        className={`text-white ${
-          backgroundColor === 'laal' ? 'bg-laal' : 'bg-rakhadi'
-        } rounded-md font-medium py-1 sm:py-2 shadow-md block sm:inline mx-auto sm:px-6 px-3`}
+        className="text-white bg-rakhadi rounded-md transition hover:bg-slate-500 active:text-slate-500 active:bg-zinc-200 font-medium py-1 sm:py-2 shadow-md block sm:inline mx-auto sm:px-6 px-3"
       >
         {text}
       </button>
@@ -34,8 +32,10 @@ const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
     <button
       onClick={text === 'Sign In' ? () => showForm() : () => hideForm()}
       className={`text-white ${
-        backgroundColor === 'laal' ? 'bg-laal' : 'bg-rakhadi'
-      } rounded-md font-medium py-1 sm:py-2 block sm:inline mx-auto sm:px-6 px-3`}
+        backgroundColor === 'laal'
+          ? 'bg-laal active:bg-rakhadi'
+          : 'bg-rakhadi active:bg-rakhadi'
+      } rounded-md font-medium hover:bg-gray-500 transition py-1 sm:py-2 block sm:inline mx-auto sm:px-6 px-3`}
     >
       {text}
     </button>

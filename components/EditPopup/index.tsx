@@ -3,6 +3,9 @@ import { EditPopupProps } from 'types/components/EditPopup'
 import { MouseEvent, useState } from 'react'
 import { doc, serverTimestamp, updateDoc } from 'firebase/firestore'
 import { db } from 'utils/database'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootDispatch, RootState } from 'utils/stateManager'
+import { showContent } from 'utils/stateManager/editPopupState'
 
 const EditPopup = ({
   title,
@@ -15,6 +18,8 @@ const EditPopup = ({
   const [titleState, setTitleState] = useState(title || '')
   const [identityInput, setIdentityInput] = useState(identity || '')
   const [pass, setPass] = useState(value || '')
+  const { scrollTo } = useSelector((state: RootState) => state.editPopup)
+  const dispatch: RootDispatch = useDispatch()
 
   const handleChange = async (event: MouseEvent) => {
     event.preventDefault()
@@ -28,15 +33,20 @@ const EditPopup = ({
   }
 
   const handleClose = () => {
+    const scrollY = scrollTo
     setIdentityInput('')
     setPass('')
     setShow(false)
+    dispatch(showContent())
+    if (scrollY > 0) {
+      setTimeout(() => window.scrollTo(0, scrollY), 0)
+    }
   }
 
   return (
     <section
       onClick={() => handleClose()}
-      className="absolute w-full h-screen top-0 left-0 z-50 backdrop-blur-md"
+      className="absolute w-full h-full top-0 left-0 z-50 backdrop-blur-xl"
     >
       <section
         onClick={(event) => event.stopPropagation()}

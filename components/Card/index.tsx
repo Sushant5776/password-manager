@@ -5,12 +5,21 @@ import { db } from 'utils/database'
 import CardInput from '@/components/CardInput'
 import EditPopup from '@/components/EditPopup'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { RootDispatch } from 'utils/stateManager'
+import { hideContent } from 'utils/stateManager/editPopupState'
 
 const Card = ({ title, identity, docId, user_id, value }: CardProps) => {
   const [show, setShow] = useState(false)
+  const dispatch: RootDispatch = useDispatch()
 
   const handleDelete = async () => {
     await deleteDoc(doc(db, 'users', user_id, 'data', docId))
+  }
+
+  const showEditPopup = () => {
+    dispatch(hideContent(window.scrollY))
+    setShow(true)
   }
 
   return (
@@ -37,7 +46,7 @@ const Card = ({ title, identity, docId, user_id, value }: CardProps) => {
           {/* Buttons */}
           <section>
             <button
-              onClick={() => setShow(true)}
+              onClick={showEditPopup}
               title={`Edit ${title} Credentials`}
               className="p-2 rounded-full hover:bg-neutral-100 active:bg-neutral-200 drop-shadow-md transition"
             >

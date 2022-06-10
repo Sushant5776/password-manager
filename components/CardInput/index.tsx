@@ -5,7 +5,6 @@ import { CardInputProps } from 'types/components/CardInput'
 const CardInput = ({ inputValue, type, displayText }: CardInputProps) => {
   const [val, setVal] = useState('')
   const [check, setCheck] = useState(false)
-  console.log(inputValue)
   const handleClick = async (event: MouseEvent) => {
     event.preventDefault()
     setCheck(true)

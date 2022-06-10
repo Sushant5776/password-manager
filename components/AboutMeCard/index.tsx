@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const AboutUsCard = () => {
   return (
-    <div className="p-4 rounded-lg bg-transparent w-max h-max max-w-sm border backdrop-blur-3xl shadow-md space-y-4 border-rakhadi/50">
+    <div className="p-4 rounded-lg bg-transparent w-max h-max max-w-xs sm:max-w-sm border backdrop-blur-3xl shadow-md space-y-4 border-rakhadi/50">
       <h2 className="text-rakhadi drop-shadow-md font-semibold text-2xl text-center">
         About Me,
       </h2>

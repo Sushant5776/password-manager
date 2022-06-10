@@ -17,5 +17,6 @@ In a world, where we tend to forget passwords we have created when signing up on
 ## Yet to Come
 
 - OAuth Authentication
+- Dark Mode
 
 **Hope you will love the work, Thank You!**
