@@ -25,19 +25,22 @@ const SignInForm = () => {
   }
 
   return (
-    <form className="p-4 rounded-lg w-max h-max border backdrop-blur-3xl shadow-md space-y-4 border-rakhadi/50">
-      <h2 className="text-laal font-semibold text-center text-2xl">
+    <form className="p-4 rounded-lg w-max h-max border backdrop-blur-3xl shadow-md dark:bg-slate-800 space-y-4 dark:border-white/5 border-rakhadi/50">
+      <h2 className="text-laal dark:font-bold font-semibold text-center text-2xl">
         Lets Get In...!
       </h2>
       <div className="flex flex-col space-y-1">
-        <label htmlFor="email" className="font-medium ml-1 text-black/70">
+        <label
+          htmlFor="email"
+          className="font-medium ml-1 dark:text-white/80 text-black/70"
+        >
           Email
         </label>
         <input
           type="email"
           id="email"
           placeholder="Get a sign in link..."
-          className="focus:outline-none w-[18rem] sm:w-[24rem] focus:bg-rakhadi/25 focus:font-medium text-slate-800 bg-rakhadi/[0.15] py-[6px] sm:py-[0.6rem] px-3 rounded-lg"
+          className="focus:outline-none w-[18rem] sm:w-[24rem] focus:bg-rakhadi/25 focus:font-medium dark:text-white/90 text-slate-800 dark:bg-white/[0.15] bg-rakhadi/[0.15] py-[6px] sm:py-[0.6rem] px-3 rounded-lg"
           value={username}
           onChange={(event) => dispatch(setUsername(event.target.value))}
         />

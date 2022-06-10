@@ -31,11 +31,11 @@ const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
   return (
     <button
       onClick={text === 'Sign In' ? () => showForm() : () => hideForm()}
-      className={`text-white ${
+      className={`text-slate-100 ${
         backgroundColor === 'laal'
-          ? 'bg-laal active:bg-rakhadi'
-          : 'bg-rakhadi active:bg-rakhadi'
-      } rounded-md font-medium hover:bg-gray-500 transition py-1 sm:py-2 block sm:inline mx-auto sm:px-6 px-3`}
+          ? 'bg-laal active:bg-slate-500'
+          : 'bg-slate-500 active:bg-slate-500'
+      } rounded-md font-medium hover:bg-slate-400 transition py-1 sm:py-2 block sm:inline mx-auto sm:px-6 px-3`}
     >
       {text}
     </button>
