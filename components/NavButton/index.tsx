@@ -21,7 +21,7 @@ const NavButton = ({ text, backgroundColor }: NavButtonProps) => {
     return (
       <button
         onClick={() => signOut({ callbackUrl: '/' })}
-        className="text-white bg-rakhadi rounded-md transition hover:bg-slate-500 active:text-slate-500 active:bg-zinc-200 font-medium py-1 sm:py-2 shadow-md block sm:inline mx-auto sm:px-6 px-3"
+        className="text-slate-100 dark:text-slate-300 bg-slate-500 rounded-md transition hover:bg-slate-400 active:bg-slate-500 font-medium py-1 sm:py-2 shadow-md block sm:inline mx-auto sm:px-6 px-3"
       >
         {text}
       </button>

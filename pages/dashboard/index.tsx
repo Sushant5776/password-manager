@@ -76,30 +76,30 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
         <Head>
           <title>Dashboard - {session.user.name || session.user.email}</title>
         </Head>
-        <main className="bg-white/95 space-y-4 flex flex-col w-full min-h-screen">
+        <main className="bg-white/95 dark:bg-slate-900/[0.9925] space-y-4 flex flex-col w-full min-h-screen">
           {/* Header */}
           <Header title="PassMan" />
           {/* Horizontal Rule */}
           <div className="flex py-2 items-center">
-            <div className="flex-grow border border-rakhadi/50"></div>
-            <span className="flex-shrink tracking-wide text-rakhadi drop-shadow-md font-semibold px-4">
+            <div className="flex-grow border dark:border-rakhadi/20 border-rakhadi/50"></div>
+            <span className="flex-shrink tracking-wide text-rakhadi dark:text-slate-400 dark:font-bold drop-shadow-md font-semibold px-4">
               Dashboard -{' '}
-              <span className="text-slate-600">
+              <span className="text-slate-500">
                 {session.user.name || session.user.email}
               </span>
             </span>
-            <div className="flex-grow border border-rakhadi/50"></div>
+            <div className="flex-grow border dark:border-rakhadi/20 border-rakhadi/50"></div>
           </div>
           {/* Content */}
           <section className="sm:mx-24 mx-5 flex-grow">
             {/* Descriptive Heading */}
-            <div className="mb-4 space-x-2 sm:space-x-6">
-              <h2 className="text-rakhadi inline-block font-semibold text-base sm:text-2xl">
+            <div className="mb-4 space-x-2 dark:space-x-0 dark:space-y-2 sm:space-x-6">
+              <h2 className="text-rakhadi dark:text-center dark:w-full dark:text-slate-400 inline-block font-semibold text-base sm:text-2xl">
                 Your Notes &amp; Passwords
               </h2>
               <button
                 onClick={() => setNewCredsPopupState(true)}
-                className="p-2 text-slate-500 text-sm sm:text-base bg-neutral-500/10 hover:outline hover:outline-2 hover:text-slate-600 hover:outline-rakhadi/30 hover:shadow-neutral-200 hover:drop-shadow-sm active:text-white active:outline-none active:bg-rakhadi transition font-medium rounded-md backdrop-blur-3xl"
+                className="p-2 text-slate-500 dark:mx-auto dark:w-full text-sm sm:text-base bg-neutral-500/10 hover:outline hover:outline-2 hover:text-slate-600 hover:outline-rakhadi/30 hover:shadow-neutral-200 hover:drop-shadow-sm active:text-white active:outline-none active:bg-rakhadi dark:active:bg-slate-500 dark:bg-slate-600 dark:text-slate-300/80 dark:hover:text-slate-200 dark:font-semibold transition font-medium rounded-md backdrop-blur-3xl"
               >
                 Add Credentials
               </button>

@@ -20,11 +20,11 @@ const CardInput = ({ inputValue, type, displayText }: CardInputProps) => {
     <div className="space-y-2">
       <label
         htmlFor={`${inputValue.replace(' ', '')}-${type}`}
-        className="text-slate-500 font-medium"
+        className="text-slate-500 dark:font-semibold font-medium"
       >
         {displayText}
       </label>
-      <div className="flex items-center w-72 rounded-md bg-rakhadi/[0.15] text-slate-700 transition focus-within:bg-rakhadi/20 justify-between">
+      <div className="flex items-center w-72 rounded-md bg-rakhadi/[0.15] dark:bg-white/[0.15] dark:text-slate-300/75 dark:font-medium text-slate-700 transition focus-within:bg-rakhadi/20 dark:focus-within:bg-white/20 justify-between">
         <input
           autoComplete="off"
           type={type}
@@ -37,11 +37,8 @@ const CardInput = ({ inputValue, type, displayText }: CardInputProps) => {
         {check ? (
           <CheckIcon className="h-7 w-7 hover:drop-shadow-md text-slate-500 mx-2" />
         ) : (
-          <button
-            onClick={(event) => handleClick(event)}
-            className="mx-2 text-slate-500"
-          >
-            <DocumentDuplicateIcon className="h-6 w-6 hover:drop-shadow-md" />
+          <button onClick={(event) => handleClick(event)} className="mx-2">
+            <DocumentDuplicateIcon className="h-6 w-6 text-slate-500 hover:drop-shadow-md" />
           </button>
         )}
       </div>
