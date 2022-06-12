@@ -105,7 +105,7 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
               </button>
             </div>
             {creds.length ? (
-              <section className="flex flex-wrap gap-4 sm:gap-8 w-max max-w-full items-center justify-start">
+              <section className="flex flex-wrap gap-4 sm:gap-8 w-full max-w-full scrollbar-hide overflow-y-scroll items-center justify-start">
                 {/* Password/Key Cards */}
                 {creds.map((doc) => (
                   <Card {...doc} user_id={session.user.id} key={doc.docId} />
