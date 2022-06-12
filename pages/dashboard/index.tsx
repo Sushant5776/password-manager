@@ -91,7 +91,7 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
             <div className="flex-grow border dark:border-rakhadi/20 border-rakhadi/50"></div>
           </div>
           {/* Content */}
-          <section className="sm:mx-24 mx-5 flex-grow">
+          <section className="sm:mx-24 dark:sm:mx-20 mx-5 flex-grow">
             {/* Descriptive Heading */}
             <div className="mb-4 dark:space-y-2 dark:sm:space-y-0 sm:space-x-6">
               <h2 className="text-rakhadi dark:text-center dark:w-full dark:sm:w-auto dark:text-slate-400 inline-block font-semibold text-base sm:text-2xl">
