@@ -34,7 +34,6 @@ const SignInForm = () => {
         setSendMail(false)
         setSuccessMail(false)
       }, 1000)
-      console.log(userAuth)
     } else {
       setInputError(true)
       setTimeout(() => setInputError(false), 4000)
