@@ -3,7 +3,7 @@ import { FooterProps } from 'types/components/Footer'
 
 const Footer = ({ name }: FooterProps) => {
   return (
-    <footer className="sm:py-8 py-4 dark:bg-rakhadi/20 sm:space-y-0 space-y-2 sm:px-32 px-4 w-full flex sm:flex-row flex-col items-center justify-between h-max sm:h-32 backdrop-blur-3xl rounded-t-lg bg-rakhadi/60">
+    <footer className="sm:py-8 py-4 dark:bg-rakhadi/20 sm:space-y-0 space-y-2 sm:px-32 px-4 w-full flex sm:flex-row flex-col items-center justify-between h-max sm:h-32 backdrop-blur-3xl rounded-t-lg bg-slate-500/80">
       {/* About Info */}
       <div className="w-max">
         <h3 className="font-semibold text-center dark:text-slate-300 drop-shadow-lg text-kaala/80">

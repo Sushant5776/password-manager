@@ -40,7 +40,7 @@ const Home: NextPage = () => {
         {/* Content */}
         <div className="flex flex-1 flex-col space-y-4 sm:space-y-0 sm:flex-row items-center justify-between sm:justify-around h-fit">
           {/* Heading */}
-          <h2 className="sm:font-semibold font-medium sm:my-0 my-2 text-center sm:text-left dark:text-slate-400 text-rakhadi leading-[4.175rem] sm:leading-[5rem] drop-shadow-lg text-5xl sm:text-6xl w-[14rem] sm:w-[17rem]">
+          <h2 className="sm:font-semibold font-medium sm:my-0 my-2 text-center sm:text-left dark:text-slate-400 text-slate-500/80 leading-[4.175rem] sm:leading-[5rem] drop-shadow-lg text-5xl sm:text-6xl w-[14rem] sm:w-[17rem]">
             <span className="text-laal">Let's</span> Have You Digitally{' '}
             <span className="text-laal">Safe!</span>
           </h2>

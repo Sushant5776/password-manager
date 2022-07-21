@@ -76,7 +76,7 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
         <Head>
           <title>Dashboard - {session.user.name || session.user.email}</title>
         </Head>
-        <main className="bg-white/95 dark:bg-slate-900/[0.9925] space-y-4 flex flex-col w-full min-h-screen">
+        <main className="bg-white/95 scrollbar-hide dark:bg-slate-900/[0.9925] space-y-4 flex flex-col w-full min-h-screen">
           {/* Header */}
           <Header title="PassMan" />
           {/* Horizontal Rule */}
