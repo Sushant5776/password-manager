@@ -76,7 +76,7 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
         <Head>
           <title>Dashboard - {session.user.name || session.user.email}</title>
         </Head>
-        <main className="bg-white/95 scrollbar-hide dark:bg-slate-900/[0.9925] space-y-4 flex flex-col w-full min-h-screen">
+        <main className="bg-white/95 dark:bg-slate-900/[0.9925] space-y-4 flex flex-col w-full min-h-screen">
           {/* Header */}
           <Header title="PassMan" />
           {/* Horizontal Rule */}
@@ -91,10 +91,10 @@ const Dashboard: NextPage<{ session: Session; data: UserData[] | [] }> = ({
             <div className="flex-grow border dark:border-rakhadi/20 border-rakhadi/50"></div>
           </div>
           {/* Content */}
-          <section className="sm:mx-24 dark:sm:mx-20 mx-5 flex-grow">
+          <section className="sm:mx-20 dark:sm:mx-20 mx-5 flex-grow">
             {/* Descriptive Heading */}
             <div className="mb-4 dark:space-y-2 dark:sm:space-y-0 sm:space-x-6">
-              <h2 className="text-rakhadi dark:text-center dark:w-full dark:sm:w-auto dark:text-slate-400 inline-block font-semibold text-base sm:text-2xl">
+              <h2 className="text-slate-500 dark:text-center dark:w-full dark:sm:w-auto dark:text-slate-400 inline-block font-semibold text-base sm:text-2xl">
                 Your Notes &amp; Passwords
               </h2>
               <button
