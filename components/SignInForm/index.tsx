@@ -4,7 +4,7 @@ import { setUsername } from 'utils/stateManager/signInFormState'
 import { signIn } from 'next-auth/react'
 import { MouseEvent, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CheckIcon } from '@heroicons/react/solid'
+import Image from 'next/image'
 
 const SignInForm = () => {
   const { username } = useSelector<RootState, SignInFormState>(
@@ -78,13 +78,23 @@ const SignInForm = () => {
         >
           {sendMail ? (
             successMail ? (
-              <CheckIcon className="w-7 h-7 text-white/90" />
+              <div className="relative w-6 h-6 text-white/90">
+                <Image src="/images/check.svg" layout="fill" />
+              </div>
             ) : (
-              <div
-                className="spinner-grow inline-block text-white/60 w-7 h-7 bg-current rounded-full opacity-0"
-                role="status"
-              >
-                <span className="visually-hidden">Loading...</span>
+              // <div
+              //   className="spinner-border inline-block text-white/60 w-7 h-7 bg-current rounded-full opacity-0"
+              //   role="status"
+              // >
+              //   <span className="visually-hidden">Loading...</span>
+              // </div>
+              <div className="flex items-center justify-center">
+                <div
+                  className="spinner-border animate-spin inline-block w-6 h-6 border-4 rounded-full opacity-60"
+                  role="status"
+                >
+                  <span className="visually-hidden">Loading...</span>
+                </div>
               </div>
             )
           ) : (

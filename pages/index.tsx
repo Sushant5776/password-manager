@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         <meta
           name="theme-color"
           media="(prefers-color-scheme: light)"
-          content="##8D99AE"
+          content="#8D99AE"
         />
         <meta
           name="theme-color"
